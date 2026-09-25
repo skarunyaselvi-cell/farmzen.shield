@@ -1,0 +1,8 @@
+{
+  "name": "FARMZEN",
+  "description": "FARMZEN — Intelligent, simple and peaceful farming support. Master AI agriculture operating system with Shield risk protection, IMD farm weather, Crop Doctor computer vision diagnosis, AI voice assistant, and Direct market access.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

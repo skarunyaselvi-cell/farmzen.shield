@@ -1,0 +1,328 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  h1, h2, h3, .font-display {
+    font-family: 'Bricolage Grotesque', 'Outfit', 'Syne', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-brand {
+    font-family: 'Outfit', 'Bricolage Grotesque', sans-serif;
+  }
+
+  .font-editorial {
+    font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom scrollbar for clean dashboard aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
+
+/* ==========================================================================
+   FARMZEN TYPOGRAPHY PERSONALITY STYLES & ANIMATIONS
+   ========================================================================== */
+
+/* 1. Heading Reveal & Light Highlight Animation (500ms - 800ms) */
+@keyframes headingRevealAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes textShimmerAnim {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes underlineGlowAnim {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scaleX(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scanlineAnim {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-heading-reveal {
+  animation: headingRevealAnim 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: textShimmerAnim 6s linear infinite;
+}
+
+.animate-underline-glow {
+  animation: underlineGlowAnim 3s ease-in-out infinite;
+}
+
+/* Module Typographic Personalities */
+
+/* A. FARMZEN SHIELD: Strong + Premium + Financial (Green -> Gold -> Emerald) */
+.heading-shield {
+  font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #34d399 0%, #fbbf24 45%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(16, 185, 129, 0.25));
+}
+
+.underline-shield {
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #f59e0b, #34d399);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* B. FARMZEN WEATHER: Light + Airy + Natural (Sky Blue -> Cyan -> Soft White) */
+.heading-weather {
+  font-family: 'Bricolage Grotesque', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  background: linear-gradient(135deg, #7dd3fc 0%, #ffffff 45%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(56, 189, 248, 0.3));
+}
+
+.underline-weather {
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #bae6fd, #0284c7);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* C. FARMZEN CROP DOCTOR: Organic + Clean + Scientific (Leaf Green -> Lime -> Warm Yellow) */
+.heading-crop {
+  font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #4ade80 0%, #a3e635 45%, #fde047 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(74, 222, 128, 0.3));
+}
+
+.underline-crop {
+  height: 3px;
+  background: linear-gradient(90deg, #22c55e, #a3e635, #eab308);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(163, 230, 53, 0.5);
+}
+
+/* D. FARMZEN AI: Modern + Futuristic + Intelligent (Emerald -> Cyan -> Subtle Violet) */
+.heading-ai {
+  font-family: 'Bricolage Grotesque', 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #34d399 0%, #22d3ee 45%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(34, 211, 238, 0.35));
+}
+
+.underline-ai {
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #06b6d4, #a855f7);
+  border-radius: 9999px;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.45);
+}
+
+/* E. FARMZEN DIRECT: Friendly + Premium + Marketplace (Green -> Orange -> Warm Yellow) */
+.heading-direct {
+  font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #34d399 0%, #fb923c 50%, #facc15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(251, 146, 60, 0.3));
+}
+
+.underline-direct {
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #f97316, #eab308);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+/* ==========================================================================
+   FARMZEN Card Visual Environments & Depth
+   ========================================================================== */
+.card-visual-environment {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-visual-environment:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.card-visual-environment:hover .card-bg-zoom {
+  transform: scale(1.08);
+}
+
+.card-bg-zoom {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* FARMZEN Animated Visual Effects */
+@keyframes plantSway {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.6deg) scale(1.015);
+  }
+}
+
+@keyframes coinGleam {
+  0%, 100% {
+    opacity: 0.65;
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(251, 191, 36, 0.85));
+  }
+}
+
+@keyframes graphDraw {
+  from {
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sunlightSweep {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(220%) rotate(25deg);
+    opacity: 0.05;
+  }
+}
+
+@keyframes shieldPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2), inset 0 0 15px rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.5), inset 0 0 25px rgba(16, 185, 129, 0.25);
+    border-color: rgba(52, 211, 153, 0.8);
+  }
+}
+
+@keyframes tickerAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-plant-sway {
+  animation: plantSway 6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.animate-coin-gleam {
+  animation: coinGleam 3s ease-in-out infinite;
+}
+
+.animate-graph-draw {
+  stroke-dasharray: 600;
+  animation: graphDraw 2.4s ease-out forwards;
+}
+
+.animate-sunlight-sweep {
+  animation: sunlightSweep 8s ease-in-out infinite;
+}
+
+.animate-shield-glow {
+  animation: shieldPulseGlow 3s ease-in-out infinite;
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerAnimation 30s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+.animate-scanline {
+  animation: scanlineAnim 3s ease-in-out infinite;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
